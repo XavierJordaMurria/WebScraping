@@ -16,4 +16,3 @@ pip install -r requirements.txt
 ## Run main.py
 python3 ./src/main.py
 
-##Test2
