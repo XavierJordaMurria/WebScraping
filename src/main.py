@@ -1,5 +1,8 @@
+from Scraper import Scraper
+
 def main():
-  print("Hello World!")
-  print("hello world!")
+    print("Hello World!")
+    scraper = Scraper()
+    scraper.scrape()
   
 main()
