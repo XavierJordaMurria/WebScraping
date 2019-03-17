@@ -6,6 +6,9 @@ class Scraper():
 
     def __init__(self):
         self.url = "https://www.meneame.net"
+
+    #variable/ wrap /container /newswrap/news-summary / news-body / center-content / -> h2 :title, href link to news
+    #news-summary / news-body / center-content / news-content / -> content
     def __download_html(self, url):
         response = requests.get(url)
         html = response.content
@@ -17,6 +20,8 @@ class Scraper():
 
 		# Download HTML
         html = self.__download_html(self.url)
-        bs = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
 
-        print(bs)
+        rest = soup.findAll("div", {"class": "news-summary"})
+
+        print(rest)
