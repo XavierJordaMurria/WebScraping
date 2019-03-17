@@ -1,3 +1,6 @@
+# Et deixo un link interessant amb Beautifulsoap 
+## https://www.youtube.com/watch?v=3xQTJi2tqgk
+
 # WebScraping
 Web Scraping example for the Tipologia module (Master Data science)
 
@@ -17,5 +20,3 @@ pip install -r requirements.txt
 python3 ./src/main.py
 
 ##Test2
-
-## User's github.com interface new edition
