@@ -2,7 +2,8 @@
 ## https://www.youtube.com/watch?v=3xQTJi2tqgk
 
 # WebScraping
-Web Scraping example for the Tipologia module (Master Data science)
+Web Scraping example: meneame.net. 
+Automate Data Collection.
 
 ### Install Venv
 python3 -m pip install --user virtualenv
