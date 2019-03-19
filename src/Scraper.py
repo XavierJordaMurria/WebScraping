@@ -62,9 +62,14 @@ class Scraper:
             news_submitted = link.find("div", {"class":"news-submitted"})
             from_news_paper = news_submitted.select_one("span").text
             print("from_news_paper: {}".format(from_news_paper))
+	    
+	    karma = link.find("span", {"class":"karma"}).text.split( )[1]
+            print("karma: {}".format(karma))
 
-            news = News(clics, meneos, contentSumary, title, titleRef, votes_up, votes_down, votes_anonymous, from_news_paper)
+            news = News(clics, meneos, contentSumary, title, titleRef, votes_up, votes_down, votes_anonymous, from_news_paper, karma)
             news_list.append(news)
+	     
+       
 
 
         print("newsSize:{}".format(len(news_list)))
