@@ -68,8 +68,11 @@ class Scraper:
 		
 	    category = link.find("span", {"class":"tool sub-name"}).text
             print("category: {}".format(category))
+		
+	    comments = link.find("a", {"class":"comments"}).text
+            print("comments: {}".format(comments))
 
-            news = News(clics, meneos, contentSumary, title, titleRef, votes_up, votes_down, votes_anonymous, from_news_paper, karma, category)
+            news = News(clics, meneos, contentSumary, title, titleRef, votes_up, votes_down, votes_anonymous, from_news_paper, karma, category, comments)
             news_list.append(news)
 	     
        
