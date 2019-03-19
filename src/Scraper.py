@@ -1,8 +1,9 @@
 from bs4 import BeautifulSoup
 from dateutil import parser
 import requests
+from News import News
 
-class Scraper():
+class Scraper:
 
     def __init__(self):
         self.url = "https://www.meneame.net"
@@ -23,9 +24,9 @@ class Scraper():
         soup = BeautifulSoup(html, 'html.parser')
 
         rest = soup.find_all("div", {"class": "news-summary"})
+        news_list = []
 
         for link in rest:
-            h = link
             clics = link.find("div", {"class":"clics"}).get_text().split( )[0]
             print("clicks: {}".format(clics))
 
@@ -38,8 +39,10 @@ class Scraper():
             try:
                 title = link.find('h2')
                 a = title.find('a')
-                print("TitleRef: {}".format(a['href']))
-                print("Title: {}".format(title.text))
+                titleRef = a['href']
+                print("TitleRef: {}".format(titleRef))
+                title = title.text
+                print("Title: {}".format(title))
             except AttributeError:
                 continue
 
@@ -57,8 +60,12 @@ class Scraper():
             print("votes_anonymous: {}".format(votes_anonymous))
 
             news_submitted = link.find("div", {"class":"news-submitted"})
-            from_news_paper = news_submitted.find("span", {"class":"showmytitle"}).get_text()
+            from_news_paper = news_submitted.select_one("span").text
             print("from_news_paper: {}".format(from_news_paper))
 
-            print("\n")
-            print(h);print("\n")
+            news = News(clics, meneos, contentSumary, title, titleRef, votes_up, votes_down, votes_anonymous, from_news_paper)
+            news_list.append(news)
+
+
+        print("newsSize:{}".format(len(news_list)))
+
