@@ -28,3 +28,7 @@ class News:
         self.votesDown = votesDown
         self.votesAnonymous = votesAnonymous
         self.newsPaper = newsPaper
+    
+    def getCSVString(self):
+        return "{};{};{};{};{};{};{};{};{}".format(self.clicks, self.meneos, self.contentSummary, 
+        self.title, self.titleRef, self.votesUp, self.votesDown, self.votesAnonymous, self.newsPaper)

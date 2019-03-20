@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from dateutil import parser
 import requests
 from News import News
+from FileWriterNewsCSV import FileWriterNewsCSV
 
 class Scraper:
 
@@ -63,30 +64,20 @@ class Scraper:
             from_news_paper = news_submitted.select_one("span").text
             print("from_news_paper: {}".format(from_news_paper))
 	    
-	    karma = link.find("span", {"class":"karma"}).text.split( )[1]
-            print("karma: {}".format(karma))
+#	        karma = link.find("span", {"class":"karma"}).text.split( )[1]
+#            print("karma: {}".format(karma))
 		
-	    category = link.find("span", {"class":"tool sub-name"}).text
-            print("category: {}".format(category))
+#	        category = link.find("span", {"class":"tool sub-name"}).text
+#            print("category: {}".format(category))
 		
-	    comments = link.find("a", {"class":"comments"}).text
-            print("comments: {}".format(comments))
-	            
-            facebook = link.find("a", {"class":"share-facebook"}).text.split( )[2]
-            print("facebook: {}".format(facebook))
-        
-            twitter = link.find("a", {"class":"share-twitter"}).text.split( )[2]
-            print("twitter: {}".format(twitter))
-        
-            mail = link.find("a", {"class":"share-mail"}).text.split( )[2]
-            print("mail: {}".format(mail))
-
-            news = News(clics, meneos, contentSumary, title, titleRef, votes_up, votes_down, votes_anonymous, from_news_paper, karma, 
-			category, comments, facebook_s, twitter_s, mail_s)
+#	        comments = link.find("a", {"class":"comments"}).text
+#            print("comments: {}".format(comments))
+	        
+            news = News(clics, meneos, contentSumary, title, titleRef, votes_up, votes_down, votes_anonymous, from_news_paper)
             news_list.append(news)
 	     
-       
-
-
         print("newsSize:{}".format(len(news_list)))
+        writer = FileWriterNewsCSV()
+        writer.persistNews(news_list)
+
 
