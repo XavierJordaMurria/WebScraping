@@ -71,8 +71,18 @@ class Scraper:
 		
 	    comments = link.find("a", {"class":"comments"}).text
             print("comments: {}".format(comments))
+	            
+            facebook = link.find("a", {"class":"share-facebook"}).text.split( )[2]
+            print("facebook: {}".format(facebook))
+        
+            twitter = link.find("a", {"class":"share-twitter"}).text.split( )[2]
+            print("twitter: {}".format(twitter))
+        
+            mail = link.find("a", {"class":"share-mail"}).text.split( )[2]
+            print("mail: {}".format(mail))
 
-            news = News(clics, meneos, contentSumary, title, titleRef, votes_up, votes_down, votes_anonymous, from_news_paper, karma, category, comments)
+            news = News(clics, meneos, contentSumary, title, titleRef, votes_up, votes_down, votes_anonymous, from_news_paper, karma, 
+			category, comments, facebook_s, twitter_s, mail_s)
             news_list.append(news)
 	     
        
