@@ -10,15 +10,15 @@ class News:
     newsPaper = ""
 
     def __init__(self,    
-                clicks,
-                meneos,
-                contentSummary,
-                title,
-                titleRef,
-                votesUp,
-                votesDown,
-                votesAnonymous,
-                newsPaper):
+                clicks: str,
+                meneos: str,
+                contentSummary: str,
+                title: str,
+                titleRef: str,
+                votesUp: str,
+                votesDown: str,
+                votesAnonymous: str,
+                newsPaper: str):
         self.clicks = clicks
         self.meneos = meneos
         self.contentSummary = contentSummary
@@ -28,7 +28,3 @@ class News:
         self.votesDown = votesDown
         self.votesAnonymous = votesAnonymous
         self.newsPaper = newsPaper
-    
-    def getCSVString(self):
-        return "{};{};{};{};{};{};{};{};{}".format(self.clicks, self.meneos, self.contentSummary, 
-        self.title, self.titleRef, self.votesUp, self.votesDown, self.votesAnonymous, self.newsPaper)

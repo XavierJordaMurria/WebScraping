@@ -4,7 +4,7 @@ from News import News
 
 class FileWriterNewsCSV:
 
-    def persistNews(self, newsArray):
+    def persistNews(self, newsArray: [News]):
         with open('meneame_news.csv', mode='w') as csv_file:
             fieldnames = ['clicks',
                 'meneos',
