@@ -14,7 +14,10 @@ class FileWriterNewsCSV:
                 'votesUp',
                 'votesDown',
                 'votesAnonymous',
-                'newsPaper']
+                'newsPaper',
+                'karma',
+                'category',
+                'comments']
             
             writer = csv.DictWriter(csv_file, delimiter=';', fieldnames=fieldnames)
             writer.writeheader()
@@ -30,4 +33,7 @@ class FileWriterNewsCSV:
                                     'votesUp': news.votesUp,
                                     'votesDown': news.votesDown,
                                     'votesAnonymous': news.votesAnonymous,
-                                    'newsPaper': news.newsPaper})
+                                    'newsPaper': news.newsPaper,
+                                    'karma':news.karma,
+                                    'category':news.category,
+                                    'comments':news.comments})

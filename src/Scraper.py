@@ -61,16 +61,28 @@ class Scraper:
             from_news_paper = news_submitted.select_one("span").text
             print("from_news_paper: {}".format(from_news_paper))
 	    
-#	        karma = link.find("span", {"class":"karma"}).text.split( )[1]
-#            print("karma: {}".format(karma))
+            karma = link.find("span", {"class":"karma"}).text.split( )[1]
+            print("karma: {}".format(karma))
 		
-#	        category = link.find("span", {"class":"tool sub-name"}).text
-#            print("category: {}".format(category))
-		
-#	        comments = link.find("a", {"class":"comments"}).text
-#            print("comments: {}".format(comments))
+            category = link.find("span", {"class":"tool sub-name"}).text
+            print("category: {}".format(category))
+
+            comments = link.find("a", {"class":"comments"}).text.split( )[0]
+            print("comments: {}".format(comments))
 	        
-            news = News(clics, meneos, contentSumary, title, titleRef, votes_up, votes_down, votes_anonymous, from_news_paper)
+            news = News(clics, 
+                        meneos,
+                        contentSumary,
+                        title,
+                        titleRef,
+                        votes_up,
+                        votes_down,
+                        votes_anonymous,
+                        from_news_paper,
+                        karma,
+                        category,
+                        comments)
+
             news_list.append(news)
 	     
         print("newsSize:{}".format(len(news_list)))
