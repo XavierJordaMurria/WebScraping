@@ -1,6 +1,3 @@
-# Et deixo un link interessant amb Beautifulsoap 
-## https://www.youtube.com/watch?v=3xQTJi2tqgk
-
 # WebScraping
 Web Scraping example: meneame.net. 
 
