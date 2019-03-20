@@ -3,6 +3,7 @@
 
 # WebScraping
 Web Scraping example: meneame.net. 
+
 Automate Data Collection.
 
 ### Install Venv
