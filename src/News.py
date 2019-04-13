@@ -1,3 +1,4 @@
+# Pojo class containing the information regarding the news
 class News:
     clicks:str = ""
     meneos:str = ""

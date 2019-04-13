@@ -9,6 +9,7 @@ class Scraper:
     def __init__(self):
         self.url = "https://www.meneame.net"
 
+    # This function will dowload the html page to be analysed.
     def __download_html(self, url:str):
         response = requests.get(url)
         html = response.content
@@ -20,10 +21,15 @@ class Scraper:
 
 		# Download HTML
         html = self.__download_html(self.url)
+
+        # Parsing the downloaded html using the BeutifulSoup library
         soup = BeautifulSoup(html, 'html.parser')
+
+        # All the news are contained inside the news-summary, so 1st we get that block.
         rest = soup.find_all("div", {"class": "news-summary"})
         news_list = []
 
+        # Looping all the news
         for link in rest:
             clics = link.find("div", {"class":"clics"}).get_text().split( )[0]
             print("clicks: {}".format(clics))
@@ -70,6 +76,7 @@ class Scraper:
             comments = link.find("a", {"class":"comments"}).text.split( )[0]
             print("comments: {}".format(comments))
 	        
+            # Creates an object news with all the information scrapped from the html.
             news = News(clics, 
                         meneos,
                         contentSumary,
@@ -87,6 +94,7 @@ class Scraper:
 	     
         print("newsSize:{}".format(len(news_list)))
         writer = FileWriterNewsCSV()
+        # The writter will save the news array into a file.
         writer.persistNews(news_list)
 
 
