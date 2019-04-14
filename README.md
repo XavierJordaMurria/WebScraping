@@ -1,7 +1,7 @@
 # WebScraping
 Web Scraping example: meneame.net. 
 
-Automate Data Collection.
+Automated Data Collection.
 
 ### Install Venv
 python3 -m pip install --user virtualenv
